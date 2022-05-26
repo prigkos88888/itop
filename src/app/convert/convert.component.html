@@ -1,0 +1,50 @@
+<div class="block-currency">
+  <div class="liner-block">
+    <mat-form-field class="chose--value" appearance="fill">
+      <mat-label>Select currency</mat-label>
+      <mat-select [(ngModel)]="selectedValue" (selectionChange)="onKeyUp(1)">
+        <mat-option *ngFor="let value of currencyM"
+                    [ngClass]="{'hidden': value.viewValue.toLowerCase() === selectedValue2}"
+                    [value]="value.viewValue.toLowerCase()">
+          {{value.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input matInput type="text" maxlength="10" placeholder="200.00"
+             [(ngModel)]="valueInput_1" (keypress)="numberOnly($event)" (keyup)="onKeyUp(1)">
+      <mat-icon class="clear" *ngIf="valueInput_1" (click)="valueInput_1=''">close</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <button class="change_value" (click)="changePosition()">
+    <svg height="24px" width="24px" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+        <path d="M0 0h24v24H0z"></path>
+        <path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z" fill="#000"
+              fill-rule="nonzero"></path>
+      </g>
+    </svg>
+  </button>
+
+
+  <div class="liner-block">
+    <mat-form-field class="chose--value" appearance="fill">
+      <mat-label>Select currency</mat-label>
+      <mat-select [(ngModel)]="selectedValue2" (selectionChange)="onKeyUp(2)">
+        <mat-option *ngFor="let value of currencyM"
+                    [ngClass]="{'hidden': value.viewValue.toLowerCase() === selectedValue}"
+                    [value]="value.viewValue.toLowerCase()">
+          {{value.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input matInput type="text" maxlength="10" placeholder="200.00"
+             [(ngModel)]="valueInput_2" (keypress)="numberOnly($event)" (keyup)="onKeyUp(2)">
+      <mat-icon class="clear" *ngIf="valueInput_2" (click)="valueInput_2=''">close</mat-icon>
+    </mat-form-field>
+  </div>
+</div>
